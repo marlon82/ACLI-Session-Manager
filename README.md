@@ -1,141 +1,211 @@
-# ACLI Session Manager
+<p align="center">
+  <img src="docs/images/netops-workspace.png" alt="NetOps Workspace" width="112">
+</p>
 
-ACLI Session Manager is a modern Windows desktop application for organizing and launching network-device sessions with ACLI. It provides a central, searchable workspace for SSH, Telnet, RDP, and serial connections and is designed for administrators who manage large network environments.
+<h1 align="center">NetOps Workspace</h1>
 
-Instead of maintaining connection details in separate files or repeatedly entering addresses and credentials, sessions can be arranged in a folder tree, enriched with device metadata, edited in bulk, and launched into named ACLI container windows.
+<p align="center">
+  A unified Windows workspace for network sessions, terminal access, monitoring, remote desktops and secure file transfers.
+</p>
 
-> **Required:** ACLI Session Manager is a graphical session-management frontend and does not include the ACLI terminal itself. Install [lgastevens/ACLI-terminal](https://github.com/lgastevens/ACLI-terminal) before using ACLI Session Manager.
+<p align="center">
+  <a href="../../releases/latest">Download</a> ·
+  <a href="../../issues">Report an issue</a> ·
+  <a href="https://github.com/lgastevens/ACLI-terminal">ACLI Terminal</a>
+</p>
 
-## Highlights
+## What is NetOps Workspace?
 
-- Organize thousands of sessions in a hierarchical folder tree
-- Launch SSH, Telnet, RDP, and serial connections
-- Open multiple sessions sequentially in the same ACLI container window
-- Search sessions by name, address, device type, software version, or location
-- Select and manage multiple sessions at once
-- Edit protocol, port, credentials, profile, interactive mode, sockets, and device description in bulk
-- Assign sequential ports to selected sessions
-- Move sessions and folders using drag and drop with a confirmation preview
-- Display device details such as IP address, model, software version, uptime, location, and port
-- Use reusable connection profiles with protected credentials
-- Switch between light and dark themes
-- Use the interface in English, German, French, or Spanish
+NetOps Workspace is a Windows desktop application for network administrators who manage many switches, routers, servers and remote systems. It combines session organization, device inventory, terminal access and operational tools in one searchable interface.
 
-## Imports and integrations
+Sessions can be organized in a hierarchical tree, enriched with device metadata, edited in bulk and launched through SSH, Telnet, RDP, serial or web-based access. Integrated workspaces for terminal sessions, ping monitoring, Remote Desktop and secure file transfer reduce the need to switch between separate utilities.
 
-### FabricNavigator
+NetOps Workspace is the successor to **ACLI Session Manager**. Existing installations and data remain supported through the built-in migration and compatibility update process.
 
-ACLI Session Manager can import assigned SSH sessions directly from the secure FabricNavigator API. Imported data can include:
+## Key features
 
-- Device name and IP address
-- SSH port and credentials
-- Device type and detected platform
-- Software version
-- SNMP `sysLocation`
-- System description
+| Area | Capabilities |
+| --- | --- |
+| **Session management** | Organize thousands of sessions in folders, search by multiple attributes, use multi-selection, drag and drop, clone sessions and perform bulk edits. |
+| **Integrated terminal** | Open multiple ACLI sessions in tabs, create adjustable split views, search terminal output, customize syntax highlighting and use programmable command buttons. |
+| **Ping Monitor** | Monitor multiple hosts with live latency graphs, packet-loss statistics, time ranges, history navigation, configurable intervals and optional CSV recording. |
+| **RDP workspace** | Open multiple Remote Desktop sessions as tabs in a dedicated window and adapt them to the available workspace. |
+| **File Transfer** | Browse local and remote files using SFTP/SCP, manage transfer queues and perform multi-device uploads or structured bulk downloads. |
+| **Inventory views** | Display device type, software version, uptime, location, address, protocol and port information in tree tooltips and detail tables. |
+| **Imports and synchronization** | Import and synchronize devices from XIQ-SE and FabricNavigator, or migrate existing SecureCRT sessions. |
+| **Profiles and credentials** | Reuse protected connection profiles, migrate legacy credentials and create encrypted packages for transfer to another Windows user. |
+| **Automation-friendly tools** | Assign sequential ports, run actions against multiple devices and collect logs, configurations, archives and Fabric Engine fulltech files. |
 
-The FabricNavigator API uses a bearer token. Saved API connections and tokens are protected for the current Windows user.
+## Session and inventory management
 
-Learn more about FabricNavigator at [github.com/marlon82/FabricNavigator](https://github.com/marlon82/FabricNavigator).
+- Hierarchical folder tree for sites, buildings, networks or teams
+- SSH, Telnet, RDP, serial, HTTPS and related operational actions
+- Fast search by name, IP address, device type, software version and location
+- Boolean-style search combinations for narrowing or combining results
+- Multi-selection from the tree, search results and detail tables
+- Bulk editing of protocol, address, port, profile, credentials, sockets, interactive mode, device type and containing window
+- Sequential port assignment for selected sessions
+- Drag-and-drop moves with a confirmation preview
+- Sortable detail and inventory tables
+- Folder summaries for sessions, subfolders, device types and software versions
+
+## Integrated terminal
+
+The integrated terminal provides an alternative to ConsoleZ while retaining ConsoleZ as a selectable option.
+
+- Multiple terminal tabs and separately named terminal windows
+- Horizontal and vertical split views with adjustable dividers
+- Renameable and reorderable tabs
+- Search across the active terminal or split view
+- Match-case and whole-word search options
+- Configurable dark- and light-mode syntax colors
+- Editable syntax-highlighting rules and ACLI aliases
+- Custom command buttons displayed at the bottom of the terminal
+- Terminal zoom, scrollback and controllable output following
+- Clipboard copy on selection and paste by right-click
+- Optional prompt removal when pasting copied command output
+- Activity indication for background tabs
+
+> ACLI-based terminal connections require [lgastevens/ACLI-terminal](https://github.com/lgastevens/ACLI-terminal). NetOps Workspace can detect the installation, show component versions and assist with installing or updating ACLI when required.
+
+## Ping Monitor
+
+The Ping Monitor can track multiple targets in one dedicated window.
+
+- Live latency, minimum, maximum and average response times
+- Packet-loss and timeout statistics
+- Configurable ping interval
+- Graph ranges from 60 seconds to 24 hours or the complete history
+- Scrollable and Fit All layouts
+- Shared history navigation across all visible graphs
+- Pause, resume and restart controls per target
+- Optional CSV recording for later analysis
+- Hostname resolution with the resolved IP address displayed separately
+
+## Integrated RDP workspace
+
+- Open several RDP sessions as tabs in one window
+- Reuse the current RDP window size for newly opened sessions
+- Resize sessions with the workspace and use full-screen mode
+- Launch RDP directly from the session tree, detail view or Quick Connect
+- Disable terminal-specific options automatically for RDP connections
+
+## Secure file transfer
+
+The File Transfer workspace uses the credentials already assigned to a session.
+
+- Tabbed SFTP/SCP sessions for multiple devices
+- Explorer-style local and remote file browsers
+- Upload, download, synchronization and reconnect actions
+- Transfer queue with device, direction, paths, progress, speed, ETA and status
+- Multi-device upload of one selected file
+- Bulk download into a separate folder for each device
+- Optional ZIP archive per device
+- Collection of logs, configurations, hidden diagnostic files and Fabric Engine fulltech output
+- Optional `save config` and complete configuration archive creation on supported Fabric Engine devices
+
+## Imports and synchronization
 
 ### XIQ-SE
 
-Devices and connection profiles can be imported from XIQ-SE. Linked folders can be synchronized again directly from the session tree. Moving a linked folder also updates the corresponding XIQ-SE profile path.
+Import devices and connection data from one or more XIQ-SE systems. Imported folders can be synchronized directly from the session tree. Device metadata can include model, software version, uptime and location.
+
+### FabricNavigator
+
+Import assigned SSH sessions through the secure FabricNavigator API and keep linked folders synchronized. Saved API connections and tokens are protected for the current Windows user.
+
+Learn more at [marlon82/FabricNavigator](https://github.com/marlon82/FabricNavigator).
 
 ### SecureCRT
 
-Existing SecureCRT sessions can be converted into the ACLI session hierarchy. SSH, Telnet, and RDP sessions are supported.
+Convert existing SecureCRT SSH, Telnet and RDP sessions into the NetOps Workspace folder structure.
 
-## Quick Connect
+## Quick Connect and serial access
 
-Quick Connect starts temporary connections without creating permanent session entries. It accepts:
+Quick Connect starts temporary sessions without creating permanent entries. It accepts a single host, comma-separated hosts and address ranges:
 
-- A single host: `192.168.1.10`
-- A comma-separated list: `192.168.1.10,192.168.1.20`
-- A range: `192.168.1.1-10`
-- Combined ranges and addresses: `192.168.1.203-204,197`
+```text
+192.168.1.10
+192.168.1.10,192.168.1.20
+192.168.1.1-10
+192.168.1.203-204,197
+```
 
-For usability and load control, the application warns before launching more than 20 connections in one ACLI window.
-
-## Serial Port Launcher
-
-The integrated serial launcher detects available Windows COM ports in the background and displays available device information such as port name, device type, and manufacturer. Standard and custom baud rates are supported.
+The Serial Launcher discovers Windows COM ports in the background, displays available device details and supports standard or custom baud rates.
 
 ## Credential security
 
-Session passwords, reusable profiles, XIQ-SE profiles, and saved FabricNavigator API tokens are protected with Windows Data Protection API (DPAPI). Protected values are tied to the Windows user account that created them.
+Passwords, connection profiles and saved API credentials are protected with the Windows Data Protection API (DPAPI). Protected values are tied to the Windows user account that created them.
 
-When legacy password formats are detected, ACLI Session Manager:
+When legacy password data is detected, NetOps Workspace:
 
-1. Creates a ZIP backup of the complete Sessions folder.
+1. Creates a ZIP backup of the complete sessions folder.
 2. Migrates supported session and profile credentials.
 3. Verifies the migrated data.
-4. Shows the migration result to the user.
+4. Shows a detailed result to the user.
 
-For transferring sessions and passwords to another person, use the built-in secure export function. It creates a password-protected transfer package that can be imported and re-protected for the receiving Windows account.
-
-> Do not distribute ordinary session files as a password-sharing mechanism. DPAPI-protected credentials normally cannot be decrypted by another Windows user.
+Use **Export secure package** when sessions and credentials must be transferred to another user. The receiving user imports the protected package and the credentials are secured again for their own Windows account.
 
 ## Requirements
 
 - Windows 10 or Windows 11, 64-bit
-- [ACLI Terminal](https://github.com/lgastevens/ACLI-terminal) installed and configured
-- `console.exe` available to launch ACLI container windows
-
-ACLI Terminal is required to establish and host the actual terminal connections. ACLI Session Manager manages session definitions, credentials, metadata, and launch commands but does not replace the terminal application.
-
-The published ACLI Session Manager application is a self-contained, single-file executable. A separate .NET runtime installation is not required for the session manager itself.
+- No separate .NET installation is required for the published self-contained executable
+- [ACLI Terminal](https://github.com/lgastevens/ACLI-terminal) for ACLI-based SSH and Telnet terminal connections
+- Network access and suitable credentials for external integrations
 
 ## Installation
 
-1. Install and configure [ACLI Terminal](https://github.com/lgastevens/ACLI-terminal).
-2. Verify that its `console.exe` launcher is available.
-3. Download `ACLI Session Manager.exe` from the latest GitHub release.
-4. Place the executable in a writable application folder.
-5. Start ACLI Session Manager.
-6. Review the settings and confirm the ACLI data location.
+1. Download `NetOps Workspace.exe` from the latest GitHub release.
+2. Place it in a writable application folder.
+3. Start the application.
+4. If ACLI is missing, use the offered installation assistant or select an existing installation under **Settings > ACLI**.
+5. Review the data location, theme, language and terminal preferences.
 
-By default, user-specific ACLI Session Manager data is stored below:
+The application is distributed as a self-contained, single-file executable.
+
+## Updating from ACLI Session Manager
+
+Older installations can update through the compatibility package. The transition build starts under the legacy executable name once, creates `NetOps Workspace.exe` beside it and removes the obsolete executable after a successful restart.
+
+New releases use the JSON-based `NetOpsWorkspace.update` manifest with file-size and SHA-256 verification. Stable and Beta update channels can be selected in the application settings.
+
+## Data and logs
+
+User-specific data remains in the compatibility location:
 
 ```text
 %USERPROFILE%\.acli\ACLISessionManager
 ```
 
-The application can also create and maintain a user-specific ACLI configuration at:
+The user-specific ACLI configuration is stored at:
 
 ```text
 %USERPROFILE%\.acli\acli.ini
 ```
 
-## Updates
+Application activity is written to `log.txt`; update activity is written to `update.log` in the application data directory.
 
-ACLI Session Manager can check GitHub for new releases. When an update is accepted, the application downloads the release, closes itself, replaces the executable, and restarts automatically. Release notes are displayed before installation.
+## Languages and appearance
 
-## Logs
+- English
+- German
+- French
+- Spanish
+- Light and dark themes
 
-Application and import information is written to:
+## Security notes
 
-```text
-%USERPROFILE%\.acli\ACLISessionManager\log.txt
-```
+- Treat exported session packages and API tokens as sensitive data.
+- Enable self-signed certificate support only for systems you trust.
+- Share transfer-package passwords through a separate communication channel.
+- Back up the data directory before large imports or administrative changes.
+- Review generated diagnostic files before sharing them outside your organization.
 
-Update activity is written to `update.log` in the same directory.
+## Related projects
 
-## Typical workflow
+- [lgastevens/ACLI-terminal](https://github.com/lgastevens/ACLI-terminal) — terminal engine used for ACLI-based connections
+- [marlon82/FabricNavigator](https://github.com/marlon82/FabricNavigator) — network discovery, topology and secure API integration
 
-1. Import sessions from FabricNavigator, XIQ-SE, or SecureCRT, or create them manually.
-2. Arrange sessions in folders that reflect sites, buildings, networks, or teams.
-3. Use profiles to reuse credentials without duplicating plaintext passwords.
-4. Search or multi-select the required devices.
-5. Launch them into an existing or newly named ACLI container window.
+## Feedback
 
-## Important security notes
-
-- Treat session exports and FabricNavigator API tokens as sensitive data.
-- Enable support for self-signed certificates only for FabricNavigator servers you trust.
-- Protect transfer-package passwords through a separate communication channel.
-- Back up the ACLI data directory before large imports or administrative changes.
-
-## Related project
-
-- [FabricNavigator](https://github.com/marlon82/FabricNavigator) — network discovery, topology, credential assignment, and secure API integration
+NetOps Workspace is under active development. Bug reports and feature requests are welcome through the repository's [issue tracker](../../issues).
